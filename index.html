@@ -4,130 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TSX TaxShield</title>
-  <style>
-    :root{
-      --bg1:#07030c;
-      --bg2:#140624;
-      --bg3:#24083a;
-      --gold:#d6b15f;
-      --gold2:#f0d38b;
-      --mint:#4fe38a;
-      --text:#efe7ff;
-      --muted:rgba(239,231,255,.75);
-      --glass:rgba(18,8,28,.55);
-      --line:rgba(214,177,95,.35);
-      --shadow: 0 18px 50px rgba(0,0,0,.55);
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-     
-      </head>
-
-      margin:0;
-      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(900px 500px at 20% 20%, rgba(214,177,95,.18), transparent 60%),
-        radial-gradient(700px 500px at 80% 30%, rgba(79,227,138,.10), transparent 55%),
-        radial-gradient(900px 700px at 50% 90%, rgba(132,70,210,.22), transparent 60%),
-        linear-gradient(180deg, var(--bg1), var(--bg2) 35%, var(--bg3) 100%);
-      min-height:100vh;
-      overflow-x:hidden;
-    }
- 
-    /* Fake “stars” layer */
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      background:
-        radial-gradient(2px 2px at 15% 20%, rgba(255,255,255,.9) 40%, transparent 45%),
-        radial-gradient(2px 2px at 55% 15%, rgba(255,255,255,.7) 40%, transparent 45%),
-        radial-gradient(1px 1px at 75% 35%, rgba(255,255,255,.8) 40%, transparent 45%),
-        radial-gradient(1px 1px at 35% 65%, rgba(255,255,255,.65) 40%, transparent 45%),
-        radial-gradient(2px 2px at 85% 75%, rgba(255,255,255,.7) 40%, transparent 45%),
-        radial-gradient(1px 1px at 25% 85%, rgba(255,255,255,.65) 40%, transparent 45%);
-      opacity:.35;
-      filter: blur(.2px);
-      z-index:0;
-    }
-  </style>
-</head>
-<body>
-<div class="hero">
-  <h1>TSX TaxShield</h1>
-  <p class="tagline">
-    A self-sustaining crypto ecosystem built for everyday people.
-  </p>
-
-  <div class="buttons">
-    <a href="#tokenomics" class="btn gold">Read Tokenomics</a>
-    <a href="#treasury" class="btn outline">View Treasury Model</a>
-  </div>
-</div>
-
-
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:1100px; margin:0 auto; padding:0 18px}
-    .topline{
-      position:fixed;
-      top:0; left:0; right:0;
-      z-index:50;
-      border-bottom:1px solid var(--line);
-      background: rgba(8,3,14,.55);
-      backdrop-filter: blur(10px);
-    }
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:14px 0;
-      gap:18px;
-    }
-    .brand{
-      font-weight:800;
-      letter-spacing:.2px;
-      font-size:22px;
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    .brand span{
-      background: linear-gradient(90deg, var(--mint), var(--gold2));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-      text-shadow: 0 0 22px rgba(79,227,138,.18);
-    }
-
-    .links{
-      display:flex;
-      gap:22px;
-      align-items:center;
-      color:rgba(239,231,255,.8);
-      font-weight:600;
-      font-size:14px;
-    }
-    .links a{padding:8px 6px; border-radius:10px}
-    .links a:hover{background:rgba(214,177,95,.10)}
-
-    .cta{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:10px 14px;
-      border-radius:12px;
-      border:1px solid rgba(79,227,138,.35);
-      background: linear-gradient(180deg, rgba(79,227,138,.25), rgba(214,177,95,.18));
-      color:#f6fff9;
-      font-weight:800;
-      box-shadow: 0 14px 30px rgba(0,0,0,.35);
-      white-space:nowrap;
-    }
-    .cta:hover{filter:brightness(1.08)}
+  <style>  .cta:hover{filter:brightness(1.08)}
 
     /* HERO */
     .hero{
@@ -309,6 +186,130 @@
       .subtitle{font-size:22px}
       .links{display:none;} /* keeps it simple on smaller screens */
     }
+    
+    :root{
+      --bg1:#07030c;
+      --bg2:#140624;
+      --bg3:#24083a;
+      --gold:#d6b15f;
+      --gold2:#f0d38b;
+      --mint:#4fe38a;
+      --text:#efe7ff;
+      --muted:rgba(239,231,255,.75);
+      --glass:rgba(18,8,28,.55);
+      --line:rgba(214,177,95,.35);
+      --shadow: 0 18px 50px rgba(0,0,0,.55);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+     
+      </head>
+
+      margin:0;
+      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 20% 20%, rgba(214,177,95,.18), transparent 60%),
+        radial-gradient(700px 500px at 80% 30%, rgba(79,227,138,.10), transparent 55%),
+        radial-gradient(900px 700px at 50% 90%, rgba(132,70,210,.22), transparent 60%),
+        linear-gradient(180deg, var(--bg1), var(--bg2) 35%, var(--bg3) 100%);
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+ 
+    /* Fake “stars” layer */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:
+        radial-gradient(2px 2px at 15% 20%, rgba(255,255,255,.9) 40%, transparent 45%),
+        radial-gradient(2px 2px at 55% 15%, rgba(255,255,255,.7) 40%, transparent 45%),
+        radial-gradient(1px 1px at 75% 35%, rgba(255,255,255,.8) 40%, transparent 45%),
+        radial-gradient(1px 1px at 35% 65%, rgba(255,255,255,.65) 40%, transparent 45%),
+        radial-gradient(2px 2px at 85% 75%, rgba(255,255,255,.7) 40%, transparent 45%),
+        radial-gradient(1px 1px at 25% 85%, rgba(255,255,255,.65) 40%, transparent 45%);
+      opacity:.35;
+      filter: blur(.2px);
+      z-index:0;
+    }
+  </style>
+</head>
+<body>
+<div class="hero">
+  <h1>TSX TaxShield</h1>
+  <p class="tagline">
+    A self-sustaining crypto ecosystem built for everyday people.
+  </p>
+
+  <div class="buttons">
+    <a href="#tokenomics" class="btn gold">Read Tokenomics</a>
+    <a href="#treasury" class="btn outline">View Treasury Model</a>
+  </div>
+</div>
+
+
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:1100px; margin:0 auto; padding:0 18px}
+    .topline{
+      position:fixed;
+      top:0; left:0; right:0;
+      z-index:50;
+      border-bottom:1px solid var(--line);
+      background: rgba(8,3,14,.55);
+      backdrop-filter: blur(10px);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 0;
+      gap:18px;
+    }
+    .brand{
+      font-weight:800;
+      letter-spacing:.2px;
+      font-size:22px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .brand span{
+      background: linear-gradient(90deg, var(--mint), var(--gold2));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      text-shadow: 0 0 22px rgba(79,227,138,.18);
+    }
+
+    .links{
+      display:flex;
+      gap:22px;
+      align-items:center;
+      color:rgba(239,231,255,.8);
+      font-weight:600;
+      font-size:14px;
+    }
+    .links a{padding:8px 6px; border-radius:10px}
+    .links a:hover{background:rgba(214,177,95,.10)}
+
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid rgba(79,227,138,.35);
+      background: linear-gradient(180deg, rgba(79,227,138,.25), rgba(214,177,95,.18));
+      color:#f6fff9;
+      font-weight:800;
+      box-shadow: 0 14px 30px rgba(0,0,0,.35);
+      white-space:nowrap;
+    }
+  
   </style>
 </head>
 
