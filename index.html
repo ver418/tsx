@@ -1,291 +1,464 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TSX TaxShield</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <style>
-  :root{
-    --bg1:#090415;
-    --bg2:#120726;
-    --bg3:#05010c;
+  <style>
+    :root{
+      --bg1:#07030c;
+      --bg2:#140624;
+      --bg3:#24083a;
+      --gold:#d6b15f;
+      --gold2:#f0d38b;
+      --mint:#4fe38a;
+      --text:#efe7ff;
+      --muted:rgba(239,231,255,.75);
+      --glass:rgba(18,8,28,.55);
+      --line:rgba(214,177,95,.35);
+      --shadow: 0 18px 50px rgba(0,0,0,.55);
+    }
 
-    --text:#efe7ff;
-    --muted:#cdbbffcc;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 20% 20%, rgba(214,177,95,.18), transparent 60%),
+        radial-gradient(700px 500px at 80% 30%, rgba(79,227,138,.10), transparent 55%),
+        radial-gradient(900px 700px at 50% 90%, rgba(132,70,210,.22), transparent 60%),
+        linear-gradient(180deg, var(--bg1), var(--bg2) 35%, var(--bg3) 100%);
+      min-height:100vh;
+      overflow-x:hidden;
+    }
 
-    --gold1:#f7d37a;
-    --gold2:#b8892a;
+    /* Fake “stars” layer */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      background:
+        radial-gradient(2px 2px at 15% 20%, rgba(255,255,255,.9) 40%, transparent 45%),
+        radial-gradient(2px 2px at 55% 15%, rgba(255,255,255,.7) 40%, transparent 45%),
+        radial-gradient(1px 1px at 75% 35%, rgba(255,255,255,.8) 40%, transparent 45%),
+        radial-gradient(1px 1px at 35% 65%, rgba(255,255,255,.65) 40%, transparent 45%),
+        radial-gradient(2px 2px at 85% 75%, rgba(255,255,255,.7) 40%, transparent 45%),
+        radial-gradient(1px 1px at 25% 85%, rgba(255,255,255,.65) 40%, transparent 45%);
+      opacity:.35;
+      filter: blur(.2px);
+      z-index:0;
+    }
 
-    --green1:#62f2b3;
-    --green2:#1bbd7c;
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:1100px; margin:0 auto; padding:0 18px}
+    .topline{
+      position:fixed;
+      top:0; left:0; right:0;
+      z-index:50;
+      border-bottom:1px solid var(--line);
+      background: rgba(8,3,14,.55);
+      backdrop-filter: blur(10px);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 0;
+      gap:18px;
+    }
+    .brand{
+      font-weight:800;
+      letter-spacing:.2px;
+      font-size:22px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .brand span{
+      background: linear-gradient(90deg, var(--mint), var(--gold2));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      text-shadow: 0 0 22px rgba(79,227,138,.18);
+    }
 
-    --card:rgba(20,10,40,.55);
-    --cardBorder:rgba(255,215,140,.18);
-    --glass:rgba(255,255,255,.06);
-  }
+    .links{
+      display:flex;
+      gap:22px;
+      align-items:center;
+      color:rgba(239,231,255,.8);
+      font-weight:600;
+      font-size:14px;
+    }
+    .links a{padding:8px 6px; border-radius:10px}
+    .links a:hover{background:rgba(214,177,95,.10)}
 
-  *{ box-sizing:border-box; }
-  html,body{ height:100%; }
-  body{
-    margin:0;
-    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    color:var(--text);
-    background:
-      radial-gradient(1200px 700px at 20% 20%, rgba(160,90,255,.25), transparent 55%),
-      radial-gradient(1000px 600px at 80% 30%, rgba(255,190,110,.18), transparent 55%),
-      radial-gradient(900px 600px at 50% 90%, rgba(60,255,190,.10), transparent 60%),
-      linear-gradient(180deg, var(--bg1), var(--bg2) 45%, var(--bg3));
-    overflow-x:hidden;
-    text-align:center;
-  }
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid rgba(79,227,138,.35);
+      background: linear-gradient(180deg, rgba(79,227,138,.25), rgba(214,177,95,.18));
+      color:#f6fff9;
+      font-weight:800;
+      box-shadow: 0 14px 30px rgba(0,0,0,.35);
+      white-space:nowrap;
+    }
+    .cta:hover{filter:brightness(1.08)}
 
-  /* star dust overlay */
-  body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    opacity:.35;
-    background-image:
-      radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,.9) 40%, transparent 41%),
-      radial-gradient(1px 1px at 70% 20%, rgba(255,255,255,.8) 45%, transparent 46%),
-      radial-gradient(1.5px 1.5px at 40% 80%, rgba(255,255,255,.7) 45%, transparent 46%),
-      radial-gradient(1px 1px at 85% 75%, rgba(255,255,255,.7) 45%, transparent 46%),
-      radial-gradient(1px 1px at 10% 75%, rgba(255,255,255,.6) 45%, transparent 46%);
-    filter: blur(.1px);
-  }
+    /* HERO */
+    .hero{
+      position:relative;
+      z-index:1;
+      padding-top:110px;
+      padding-bottom:34px;
+    }
+    .heroCard{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(20,6,36,.55), rgba(10,3,18,.45));
+      border-radius:18px;
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .heroInner{
+      padding:42px 22px 26px 22px;
+      text-align:center;
+    }
+    .coin{
+      width:148px;
+      height:148px;
+      object-fit:cover;
+      border-radius:18px;
+      border:1px solid rgba(214,177,95,.35);
+      box-shadow: 0 18px 45px rgba(0,0,0,.55);
+      margin: 0 auto 16px auto;
+      display:block;
+      background: rgba(0,0,0,.25);
+    }
 
-  /* top nav bar look (even if your HTML doesn't have it yet, this won't hurt) */
-  .nav{
-    position:sticky;
-    top:0;
-    z-index:20;
-    backdrop-filter: blur(10px);
-    background: linear-gradient(180deg, rgba(10,3,20,.92), rgba(10,3,20,.65));
-    border-bottom:1px solid rgba(255,215,140,.14);
-  }
-  .nav-inner{
-    max-width:1100px;
-    margin:0 auto;
-    padding:14px 18px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:16px;
-  }
-  .brand{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-weight:800;
-    letter-spacing:.4px;
-    font-size:20px;
-  }
-  .brand span{
-    background: linear-gradient(90deg, var(--green1), var(--gold1));
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
-    text-shadow: 0 0 18px rgba(98,242,179,.18);
-  }
-  .nav a{
-    color:var(--muted);
-    text-decoration:none;
-    font-size:14px;
-    padding:8px 10px;
-    border-radius:10px;
-  }
-  .nav a:hover{ background:rgba(255,255,255,.06); color:var(--text); }
+    .h1{
+      margin:6px 0 10px 0;
+      font-size:48px;
+      font-weight:900;
+      letter-spacing:.3px;
+      background: linear-gradient(90deg, var(--mint), var(--gold2));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      text-shadow: 0 0 26px rgba(214,177,95,.12);
+    }
 
-  .btn{
-    display:inline-block;
-    padding:12px 18px;
-    border-radius:14px;
-    text-decoration:none;
-    font-weight:700;
-    letter-spacing:.2px;
-    border:1px solid rgba(255,215,140,.22);
-    box-shadow: 0 10px 30px rgba(0,0,0,.35);
-    transition: transform .12s ease, filter .12s ease;
-  }
-  .btn:hover{ transform: translateY(-1px); filter: brightness(1.05); }
+    .subtitle{
+      margin:0;
+      font-size:28px;
+      font-weight:800;
+      color: rgba(240,211,139,.95);
+      line-height:1.15;
+      text-shadow: 0 10px 32px rgba(0,0,0,.55);
+    }
 
-  .btn-gold{
-    color:#2a1700;
-    background: linear-gradient(180deg, var(--gold1), var(--gold2));
-  }
-  .btn-green{
-    color:#02170e;
-    background: linear-gradient(180deg, var(--green1), var(--green2));
-  }
+    .desc{
+      margin:18px auto 0 auto;
+      max-width:780px;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.6;
+    }
 
-  header{
-    padding:58px 18px 34px;
-  }
+    .buttons{
+      margin-top:18px;
+      display:flex;
+      justify-content:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 18px;
+      border-radius:12px;
+      border:1px solid rgba(214,177,95,.35);
+      background: rgba(214,177,95,.12);
+      color: rgba(240,211,139,.95);
+      font-weight:900;
+      box-shadow: 0 14px 28px rgba(0,0,0,.35);
+      min-width:210px;
+    }
+    .btn:hover{filter:brightness(1.08)}
+    .btn.alt{
+      border-color: rgba(79,227,138,.35);
+      background: rgba(79,227,138,.12);
+      color: rgba(210,255,228,.95);
+    }
 
-  .coin{
-    width:160px;
-    height:auto;
-    display:block;
-    margin:0 auto 18px;
-    border-radius:18px;
-    box-shadow:
-      0 0 0 1px rgba(255,215,140,.12),
-      0 18px 55px rgba(255,170,70,.18),
-      0 18px 55px rgba(98,242,179,.12);
-  }
+    .launchLine{
+      margin-top:18px;
+      color: rgba(239,231,255,.70);
+      font-weight:700;
+      letter-spacing:.2px;
+    }
+    .launchLine b{color:rgba(240,211,139,.95)}
+    .dividerGlow{
+      height:1px;
+      margin:22px 0 0 0;
+      background: linear-gradient(90deg, transparent, rgba(214,177,95,.55), transparent);
+    }
 
-  h1{
-    margin:0;
-    font-size:48px;
-    line-height:1.1;
-    letter-spacing:.2px;
-    text-shadow: 0 18px 45px rgba(0,0,0,.55);
-  }
-  .subtitle{
-    margin:14px auto 0;
-    max-width:820px;
-    font-size:18px;
-    color:var(--muted);
-  }
+    /* Cards */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:16px;
+      padding:22px;
+      border-top:1px solid rgba(214,177,95,.18);
+      background: rgba(0,0,0,.10);
+    }
+    .card{
+      border-radius:16px;
+      border:1px solid rgba(214,177,95,.22);
+      background: rgba(10,3,18,.40);
+      padding:18px 16px;
+      box-shadow: 0 14px 28px rgba(0,0,0,.35);
+      min-height:160px;
+    }
+    .cardTitle{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:16px;
+      font-weight:900;
+      color: rgba(240,211,139,.95);
+      margin:0 0 8px 0;
+    }
+    .icon{
+      width:34px; height:34px;
+      display:grid; place-items:center;
+      border-radius:12px;
+      border:1px solid rgba(214,177,95,.25);
+      background: rgba(214,177,95,.10);
+      font-size:18px;
+    }
+    .card p{
+      margin:0;
+      color: rgba(239,231,255,.72);
+      line-height:1.55;
+      font-size:14px;
+    }
 
-  .cta{
-    margin-top:22px;
-    display:flex;
-    gap:14px;
-    justify-content:center;
-    flex-wrap:wrap;
-  }
+    /* Sections */
+    section{
+      position:relative;
+      z-index:1;
+      padding:22px 0;
+    }
+    .sectionCard{
+      border-radius:18px;
+      border:1px solid rgba(214,177,95,.22);
+      background: rgba(10,3,18,.35);
+      box-shadow: var(--shadow);
+      padding:18px;
+    }
+    .sectionTitle{
+      margin:0 0 6px 0;
+      font-size:20px;
+      font-weight:900;
+      color: rgba(240,211,139,.95);
+    }
+    .sectionText{
+      margin:0;
+      color: rgba(239,231,255,.75);
+      line-height:1.6;
+    }
 
-  .section{
-    max-width:1100px;
-    margin:0 auto;
-    padding:24px 18px 70px;
-  }
+    footer{
+      padding:30px 0 40px 0;
+      color: rgba(239,231,255,.55);
+      text-align:center;
+      position:relative;
+      z-index:1;
+    }
 
-  .grid{
-    display:grid;
-    grid-template-columns: repeat(3, minmax(0,1fr));
-    gap:16px;
-    margin-top:26px;
-  }
-  @media (max-width: 920px){
-    .grid{ grid-template-columns:1fr; }
-    h1{ font-size:38px; }
-  }
-
-  .card{
-    padding:18px 18px 16px;
-    border-radius:18px;
-    background: linear-gradient(180deg, var(--card), rgba(10,4,18,.35));
-    border:1px solid var(--cardBorder);
-    box-shadow: 0 20px 60px rgba(0,0,0,.35);
-    position:relative;
-    overflow:hidden;
-  }
-  .card::before{
-    content:"";
-    position:absolute;
-    inset:-60px -60px auto auto;
-    width:180px;
-    height:180px;
-    background: radial-gradient(circle at 30% 30%, rgba(247,211,122,.22), transparent 60%);
-    transform: rotate(18deg);
-  }
-  .card h3{
-    margin:0 0 10px;
-    font-size:18px;
-    letter-spacing:.2px;
-  }
-  .card p, .card li{
-    color:var(--muted);
-    font-size:14px;
-    line-height:1.45;
-  }
-  .card ul{
-    margin:12px 0 0;
-    padding-left:18px;
-    text-align:left;
-  }
-
-  .divider{
-    margin:26px auto 0;
-    height:1px;
-    width:min(900px, 92%);
-    background: linear-gradient(90deg, transparent, rgba(255,215,140,.28), transparent);
-  }
-
-  footer{
-    padding:26px 18px 44px;
-    color:rgba(255,255,255,.55);
-    font-size:13px;
-  }
-</style>
-
+    @media (max-width: 900px){
+      .grid{grid-template-columns:1fr; }
+      .h1{font-size:38px}
+      .subtitle{font-size:22px}
+      .links{display:none;} /* keeps it simple on smaller screens */
+    }
+  </style>
 </head>
+
 <body>
 
-<header>
-  <img src="https://raw.githubusercontent.com/ver418/tsx/main/b37747bb-7c9b-487e-bf7b-9fc88c34e20b.png" alt="TSX Coin" style="width:180px; margin-bottom:20px;">
+  <!-- TOP NAV -->
+  <div class="topline">
+    <div class="wrap">
+      <div class="nav">
+        <div class="brand">
+          <span>TSX TaxShield</span>
+        </div>
 
-  <h1>TSX TaxShield</h1>
-  <p>A self-sustaining crypto ecosystem built for everyday people.</p>
+        <div class="links">
+          <a href="#tokenomics">Tokenomics</a>
+          <a href="#treasury">Treasury</a>
+          <a href="#raise">Raise</a>
+          <a href="#community">Community</a>
+          <a href="#docs">Docs</a>
+        </div>
 
-  <div style="margin-top:25px;">
-    <a href="#tokenomics" style="padding:12px 20px; background:#f5c16c; color:#000; text-decoration:none; border-radius:6px; margin-right:10px;">
-      Read Tokenomics
-    </a>
-    <a href="#treasury" style="padding:12px 20px; background:#f5c16c; color:#000; text-decoration:none; border-radius:6px;">
-      View Treasury Model
-    </a>
-  </div>
-</header>
-<header>
-  <h1>TSX TaxShield</h1>
-  <h2>A self-sustaining crypto ecosystem built for everyday people.</h2>
-
-  <div class="buttons">
-    <a href="#">Read Tokenomics</a>
-    <a href="#">View Treasury Model</a>
-  </div>
-</header>
-
-<section>
-  <p>
-    TSX funds its own growth through transaction fees, disciplined treasury management,
-    and long-term system design — while keeping the token accessible and transparent.
-  </p>
-
-  <div class="cards">
-    <div class="card">
-      <h3>Fees Power the System</h3>
-      <p>
-        Transaction fees support treasury growth, liquidity reinforcement,
-        and ongoing operations.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Treasury Builds Stability</h3>
-      <p>
-        The treasury is designed to diversify responsibly across crypto,
-        stable assets, and future reserve strategies.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Fair Market Protection</h3>
-      <p>
-        Adaptive protections discourage bot activity and promote fair
-        distribution during launch.
-      </p>
+        <!-- Replace this link later with your real waitlist link -->
+        <a class="cta" href="#waitlist">Join the Waitlist</a>
+      </div>
     </div>
   </div>
-</section>
 
-<footer>
-  Free the Moderate Class
-</footer>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="heroCard">
+        <div class="heroInner">
 
+          <!-- IMPORTANT: this uses the file you already uploaded -->
+          <img class="coin" src="tsx-coin.png" alt="TSX Coin" />
+
+          <div class="h1">TSX TaxShield</div>
+
+          <p class="subtitle">A self-sustaining crypto ecosystem<br/>built for everyday people.</p>
+
+          <p class="desc">
+            TSX funds its own growth through fees, buybacks, and disciplined treasury management — while keeping the token accessible.
+          </p>
+
+          <div class="buttons">
+            <a class="btn" href="#tokenomics">Read Tokenomics</a>
+            <a class="btn alt" href="#treasury">View Treasury Model</a>
+          </div>
+
+          <div class="launchLine">
+            Launching on <b>Solana</b> first. Expansion planned for <b>Ethereum</b> and <b>Polygon</b>.
+          </div>
+
+          <div class="dividerGlow"></div>
+        </div>
+
+        <!-- 3 FEATURE CARDS -->
+        <div class="grid">
+          <div class="card">
+            <div class="cardTitle">
+              <div class="icon">%</div>
+              Fees Power the System
+            </div>
+            <p>
+              3% base transaction fee supports treasury growth, liquidity reinforcement, and operations.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="cardTitle">
+              <div class="icon">🏛️</div>
+              Treasury Builds Stability
+            </div>
+            <p>
+              Treasury diversifies across TSX buybacks/liquidity, major crypto, stable assets, and long-term reserves.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="cardTitle">
+              <div class="icon">🛡️</div>
+              Fair Market Protection
+            </div>
+            <p>
+              Adaptive protection discourages whale accumulation and bot volatility swings during launch.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTIONS -->
+  <section id="tokenomics">
+    <div class="wrap">
+      <div class="sectionCard">
+        <div class="sectionTitle">Tokenomics</div>
+        <p class="sectionText">
+          (We’ll fill this in next.) This section will explain the fee, the treasury split, buybacks, liquidity, and how TSX supports Raise.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="treasury">
+    <div class="wrap">
+      <div class="sectionCard">
+        <div class="sectionTitle">Treasury</div>
+        <p class="sectionText">
+          (We’ll fill this in next.) This section will show the treasury buckets and how funds are managed for stability and growth.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="raise">
+    <div class="wrap">
+      <div class="sectionCard">
+        <div class="sectionTitle">Raise</div>
+        <p class="sectionText">
+          (We’ll fill this in next.) Raise is the stablecoin layer connected to TSX. Here we’ll explain the relationship and rollout plan.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="community">
+    <div class="wrap">
+      <div class="sectionCard">
+        <div class="sectionTitle">Community</div>
+        <p class="sectionText">
+          (We’ll fill this in next.) Telegram / Discord link, early access, updates, and community governance direction.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="docs">
+    <div class="wrap">
+      <div class="sectionCard">
+        <div class="sectionTitle">Docs</div>
+        <p class="sectionText">
+          (We’ll fill this in next.) Whitepaper, audits, contract addresses, and official links go here.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAITLIST -->
+  <section id="waitlist">
+    <div class="wrap">
+      <div class="sectionCard">
+        <div class="sectionTitle">Join the Waitlist</div>
+        <p class="sectionText">
+          Next step: we’ll connect this button to a real waitlist (Google Form / Carrd / Mailchimp / ConvertKit).
+          For now it scrolls here so the button “works.”
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> TSX TaxShield — Free the Moderate Class.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
