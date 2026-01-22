@@ -1,1 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TSX TaxShield — Raise (RAISE)</title>
+
+  <style>
+    :root{
+      --bg1:#070b14;
+      --bg2:#0b1020;
+      --card:rgba(255,255,255,.04);
+      --border:rgba(255,255,255,.08);
+      --text:#eaf0ff;
+      --muted:rgba(234,240,255,.78);
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius:18px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 600px at 15% 20%, rgba(79,227,138,.10), transparent 60%),
+        radial-gradient(900px 600px at 85% 15%, rgba(214,177,95,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+    }
+
+    a{ color:inherit; text-decoration:none; }
+
+    .wrap{
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 18px 70px;
+    }
+
+    .back{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:rgba(234,240,255,.75);
+      font-weight:600;
+      margin-bottom:16px;
+    }
+    .back:hover{ color:rgba(234,240,255,.95); }
+
+    .top{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      margin-bottom:18px;
+    }
+
+    .top img{
+      height:42px;
+      width:auto;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,.45));
+    }
+
+    h1{
+      margin: 6px 0 6px;
+      font-size: 44px;
+      letter-spacing: .2px;
+    }
+
+    .subtitle{
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height:1.6;
+      max-width: 820px;
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 18px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    h2{
+      margin: 0 0 10px;
+      font-size: 20px;
+      letter-spacing:.2px;
+    }
+
+    p{
+      margin: 0 0 12px;
+      color: var(--muted);
+      line-height:1.65;
+    }
+
+    ul{
+      margin: 10px 0 0 18px;
+      padding:0;
+      color: var(--muted);
+      line-height:1.7;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .note{
+      margin-top: 14px;
+      border-left: 3px solid rgba(214,177,95,.55);
+      padding-left: 12px;
+    }
+
+    .pillrow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 12px;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(79,227,138,.25);
+      background: rgba(79,227,138,.08);
+      color: rgba(234,240,255,.90);
+      font-weight:700;
+      font-size: 13px;
+      white-space:nowrap;
+    }
+
+    .pill.gold{
+      border: 1px solid rgba(214,177,95,.30);
+      background: rgba(214,177,95,.10);
+    }
+
+    @media (max-width: 900px){
+      h1{ font-size: 36px; }
+      .grid{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <a class="back" href="index.html">← Back to Home</a>
+
+    <div class="top">
+      <!-- IMPORTANT: If your logo filename is different, replace it below -->
+      <img src="b37747bb-7c9b-487e-bf7b-9fc88c34e20b.png" alt="TSX Coin" />
+      <div>
+        <h1>Raise (RAISE)</h1>
+        <p class="subtitle">
+          A future stability layer concept. <strong>Off-protocol for now</strong> — earned, not promised.
+          TSX ships first. Raise comes later when the foundation is proven.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>What Raise is (and what it isn’t)</h2>
+      <p>
+        Raise is planned as a stability-focused token that may eventually support everyday tax-planning workflows.
+        It is intentionally not marketed as a “guaranteed peg” or a hype stablecoin.
+      </p>
+      <ul>
+        <li><strong>Not live at launch.</strong> TSX launches first and proves fee-powered sustainability.</li>
+        <li><strong>No custody.</strong> Users control their own wallets at all times.</li>
+        <li><strong>No promises.</strong> No “always $1” claims. No yield claims. No shortcuts.</li>
+      </ul>
+
+      <div class="pillrow">
+        <span class="pill">TSX first</span>
+        <span class="pill gold">Raise later</span>
+        <span class="pill">Earned stability</span>
+        <span class="pill gold">Transparency-first</span>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>Why it exists</h2>
+        <p>
+          The long-term goal is to help everyday people handle taxes with less stress:
+          saving, planning, and smoothing volatility without hype or leverage.
+        </p>
+        <ul>
+          <li>Designed to be understandable and boring — in a good way.</li>
+          <li>Built around clear rules, public reporting, and simple UX goals.</li>
+          <li>Aligned with TSX’s mission: sustainability and protection.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>How it could be supported</h2>
+        <p>
+          If Raise is ever launched, support would come from disciplined treasury behavior and external asset strategy —
+          not from promises, not from printing, and not from leverage.
+        </p>
+        <ul>
+          <li>Potential support from stable reserves / external assets strategy.</li>
+          <li>Potential integrations with savings and tax-workflow tools.</li>
+          <li>Clear, public disclosures — “show the receipts.”</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:14px;">
+      <h2>Launch posture (locked)</h2>
+      <p>
+        Raise is <strong>intentionally off-protocol for now</strong>.
+        We do not ship it until TSX’s fee system and transparency model are stable in real markets.
+      </p>
+      <p class="note">
+        This page exists so visitors understand the roadmap: Raise is a future layer,
+        not a launch token and not a “stablecoin promise.”
+      </p>
+    </div>
+
+    <div class="card" style="margin-top:14px;">
+      <h2>Next steps</h2>
+      <ul>
+        <li>Publish disclosures, definitions, and constraints (no hype language).</li>
+        <li>Ship Docs and Community pages for transparency and communication.</li>
+        <li>Keep Raise as a roadmap item until TSX proves sustainability.</li>
+      </ul>
+    </div>
+
+  </div>
+</body>
+</html>
 
