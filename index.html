@@ -4,66 +4,82 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TSX TaxShield</title>
-  <style> 
-body {
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  background: linear-gradient(180deg, #070b14, #0b1020);
-  color: #eaf0ff;
-}
 
+  <style>
+    :root{
+      --bg1:#07030c;
+      --bg2:#140624;
+      --bg3:#24083a;
 
-  </style>
-  /* END STYLE FIX */
+      --text:#f1ecff;
+      --muted:rgba(241,236,255,.75);
 
-</head>
-<body>
-  <header style="padding:16px 24px; font-weight:600;">
-  <img src="b37747bb-7c9b-487e-bf7b-9fc88c34e20b.png" alt="TSX Coin" style="height:42px; vertical-align:middle; margin-right:12px;">
+      --glass:rgba(18,8,28,.55);
+      --line:rgba(214,177,95,.35);
 
-  <span>TSX TaxShield</span>
-</header>
+      --gold1:#d6b15f;
+      --gold2:#f0d38b;
 
-<div class="hero">
-  <h1>TSX TaxShield</h1>
-  <p class="tagline">
-    A self-sustaining crypto ecosystem built for everyday people.
-  </p>
-
-  <div class="buttons">
-    <a href="#tokenomics" class="btn gold">Read Tokenomics</a>
-    <a href="#treasury" class="btn outline">View Treasury Model</a>
-  </div>
-</div>
-
-
-    a{color:inherit; text-decoration:none}
-    .wrap{max-width:1100px; margin:0 auto; padding:0 18px}
-    .topline{
-      position:fixed;
-      top:0; left:0; right:0;
-      z-index:50;
-      border-bottom:1px solid var(--line);
-      background: rgba(8,3,14,.55);
-      backdrop-filter: blur(10px);
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius:18px;
     }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 600px at 15% 20%, rgba(214,177,95,.18), transparent 55%),
+        radial-gradient(900px 600px at 85% 15%, rgba(79,227,138,.18), transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2) 40%, var(--bg3));
+    }
+
+    a{ color:inherit; text-decoration:none; }
+
+    .wrap{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 18px 18px 80px;
+    }
+
+    /* TOP BAR */
+    .topline{
+      position: sticky;
+      top:0;
+      z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(8,3,14,.55);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
     .nav{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding:14px 0;
-      gap:18px;
+      gap:14px;
+      padding: 12px 18px;
+      max-width: 1100px;
+      margin: 0 auto;
     }
+
     .brand{
-      font-weight:800;
-      letter-spacing:.2px;
-      font-size:22px;
       display:flex;
       align-items:center;
-      gap:10px;
+      gap:12px;
+      font-weight:700;
+      letter-spacing:.2px;
+    }
+    .brand img{
+      height:42px;
+      width:auto;
+      vertical-align:middle;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,.35));
     }
     .brand span{
-      background: linear-gradient(90deg, var(--mint), var(--gold2));
+      font-size:18px;
+      background: linear-gradient(90deg, var(--gold2), rgba(79,227,138,.9));
       -webkit-background-clip:text;
       background-clip:text;
       color:transparent;
@@ -72,197 +88,162 @@ body {
 
     .links{
       display:flex;
-      gap:22px;
-      align-items:center;
-      color:rgba(239,231,255,.8);
-      font-weight:600;
-      font-size:14px;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
     }
-    .links a{padding:8px 6px; border-radius:10px}
-    .links a:hover{background:rgba(214,177,95,.10)}
 
-    .cta{
+    .pill{
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      font-size: 14px;
+      color: rgba(241,236,255,.92);
+    }
+    .pill:hover{
+      background: rgba(255,255,255,.07);
+    }
+
+    /* HERO */
+    .hero{
+      padding-top: 34px;
+    }
+
+    h1{
+      margin: 6px 0 8px;
+      font-size: 44px;
+      line-height: 1.05;
+      letter-spacing: .2px;
+    }
+
+    .tagline{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 760px;
+    }
+
+    .buttons{
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
+      margin-top: 16px;
+    }
+
+    .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:10px 14px;
-      border-radius:12px;
-      border:1px solid rgba(79,227,138,.35);
-      background: linear-gradient(180deg, rgba(79,227,138,.25), rgba(214,177,95,.18));
-      color:#f6fff9;
-      font-weight:800;
-      box-shadow: 0 14px 30px rgba(0,0,0,.35);
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      box-shadow: var(--shadow);
+      font-weight: 700;
       white-space:nowrap;
     }
-  
+    .btn:hover{ background: rgba(255,255,255,.08); }
+
+    .btn.gold{
+      border-color: rgba(214,177,95,.45);
+      background: linear-gradient(180deg, rgba(240,211,139,.14), rgba(214,177,95,.08));
+      color: #f6f1e1;
+    }
+
+    /* SECTIONS */
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .card{
+      background: var(--glass);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h2{
+      margin: 0 0 6px;
+      font-size: 18px;
+      letter-spacing:.2px;
+    }
+
+    .card p{
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 14.5px;
+    }
+
+    @media (max-width: 900px){
+      h1{ font-size: 36px; }
+      .grid{ grid-template-columns: 1fr; }
+      .links{ justify-content:flex-start; }
+    }
   </style>
 </head>
 
 <body>
-
-  <!-- TOP NAV -->
   <div class="topline">
-    <div class="wrap">
-      <div class="nav">
-        <div class="brand">
-          <span>TSX TaxShield</span>
-        </div>
+    <div class="nav">
+      <div class="brand">
+        <img src="b37747bb-7c9b-487e-bf7b-9fc88c34e20b.png" alt="TSX Coin">
+        <span>TSX TaxShield</span>
+      </div>
 
-        <div class="links">
-          <a href="#tokenomics">Tokenomics</a>
-          <a href="#treasury">Treasury</a>
-          <a href="#raise">Raise</a>
-          <a href="#community">Community</a>
-          <a href="#docs">Docs</a>
-        </div>
-
-        <!-- Replace this link later with your real waitlist link -->
-        <a class="cta" href="#waitlist">Join the Waitlist</a>
+      <div class="links">
+        <a class="pill" href="#tokenomics">Tokenomics</a>
+        <a class="pill" href="#treasury">Treasury</a>
+        <a class="pill" href="#raise">Raise</a>
+        <a class="pill" href="#community">Community</a>
+        <a class="pill" href="#docs">Docs</a>
       </div>
     </div>
   </div>
 
-  <!-- HERO -->
-  <div class="hero">
-    <div class="wrap">
-      <div class="heroCard">
-        <div class="heroInner">
+  <div class="wrap">
+    <section class="hero">
+      <h1>TSX TaxShield</h1>
+      <p class="tagline">A self-sustaining crypto ecosystem built for everyday people.</p>
 
-          <!-- IMPORTANT: this uses the file you already uploaded -->
-          <img class="coin" src="tsx-coin.png" alt="TSX Coin" />
-
-          <div class="h1">TSX TaxShield</div>
-
-          <p class="subtitle">A self-sustaining crypto ecosystem<br/>built for everyday people.</p>
-
-          <p class="desc">
-            TSX funds its own growth through fees, buybacks, and disciplined treasury management — while keeping the token accessible.
-          </p>
-
-          <div class="buttons">
-            <a class="btn" href="#tokenomics">Read Tokenomics</a>
-            <a class="btn alt" href="#treasury">View Treasury Model</a>
-          </div>
-
-          <div class="launchLine">
-            Launching on <b>Solana</b> first. Expansion planned for <b>Ethereum</b> and <b>Polygon</b>.
-          </div>
-
-          <div class="dividerGlow"></div>
-        </div>
-
-        <!-- 3 FEATURE CARDS -->
-        <div class="grid">
-          <div class="card">
-            <div class="cardTitle">
-              <div class="icon">%</div>
-              Fees Power the System
-            </div>
-            <p>
-              3% base transaction fee supports treasury growth, liquidity reinforcement, and operations.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="cardTitle">
-              <div class="icon">🏛️</div>
-              Treasury Builds Stability
-            </div>
-            <p>
-              Treasury diversifies across TSX buybacks/liquidity, major crypto, stable assets, and long-term reserves.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="cardTitle">
-              <div class="icon">🛡️</div>
-              Fair Market Protection
-            </div>
-            <p>
-              Adaptive protection discourages whale accumulation and bot volatility swings during launch.
-            </p>
-          </div>
-        </div>
-
+      <div class="buttons">
+        <a class="btn gold" href="#tokenomics">Read Tokenomics</a>
+        <a class="btn" href="#treasury">View Treasury Model</a>
       </div>
+    </section>
+
+    <div class="grid">
+      <section id="tokenomics" class="card">
+        <h2>Tokenomics</h2>
+        <p>Fixed supply. Fee-powered sustainability. Designed for stability, not hype.</p>
+      </section>
+
+      <section id="treasury" class="card">
+        <h2>Treasury</h2>
+        <p>Transparent allocations across buyback/burn, stables, markets, and hard assets.</p>
+      </section>
+
+      <section id="raise" class="card">
+        <h2>Raise (RAISE)</h2>
+        <p>Off-protocol for now. Positioned as a future stability layer — earned, not promised.</p>
+      </section>
+
+      <section id="community" class="card">
+        <h2>Community</h2>
+        <p>Simple. Clear. No buy buttons. No hype. Built to last.</p>
+      </section>
+
+      <section id="docs" class="card">
+        <h2>Docs</h2>
+        <p>Coming next: Tokenomics page, Treasury breakdown, disclaimers, and roadmap.</p>
+      </section>
     </div>
   </div>
-
-  <!-- SECTIONS -->
-  <section id="tokenomics">
-    <div class="wrap">
-      <div class="sectionCard">
-        <div class="sectionTitle">Tokenomics</div>
-        <p class="sectionText">
-          (We’ll fill this in next.) This section will explain the fee, the treasury split, buybacks, liquidity, and how TSX supports Raise.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="treasury">
-    <div class="wrap">
-      <div class="sectionCard">
-        <div class="sectionTitle">Treasury</div>
-        <p class="sectionText">
-          (We’ll fill this in next.) This section will show the treasury buckets and how funds are managed for stability and growth.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="raise">
-    <div class="wrap">
-      <div class="sectionCard">
-        <div class="sectionTitle">Raise</div>
-        <p class="sectionText">
-          (We’ll fill this in next.) Raise is the stablecoin layer connected to TSX. Here we’ll explain the relationship and rollout plan.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="community">
-    <div class="wrap">
-      <div class="sectionCard">
-        <div class="sectionTitle">Community</div>
-        <p class="sectionText">
-          (We’ll fill this in next.) Telegram / Discord link, early access, updates, and community governance direction.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="docs">
-    <div class="wrap">
-      <div class="sectionCard">
-        <div class="sectionTitle">Docs</div>
-        <p class="sectionText">
-          (We’ll fill this in next.) Whitepaper, audits, contract addresses, and official links go here.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- WAITLIST -->
-  <section id="waitlist">
-    <div class="wrap">
-      <div class="sectionCard">
-        <div class="sectionTitle">Join the Waitlist</div>
-        <p class="sectionText">
-          Next step: we’ll connect this button to a real waitlist (Google Form / Carrd / Mailchimp / ConvertKit).
-          For now it scrolls here so the button “works.”
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    © <span id="year"></span> TSX TaxShield — Free the Moderate Class.
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
+
