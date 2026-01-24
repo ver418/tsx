@@ -109,6 +109,22 @@
     .hero{
       padding-top: 34px;
     }
+.hero{
+  position: relative;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:-40px;
+  background: radial-gradient(circle at top center, rgba(80,200,120,.15), transparent 70%);
+  z-index:0;
+}
+
+.hero > *{
+  position:relative;
+  z-index:1;
+}
 
     h1{
       margin: 6px 0 8px;
