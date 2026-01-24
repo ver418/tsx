@@ -92,13 +92,17 @@ transform-origin: 50% 50%;
 will-change: transform;
       
     }
-    .brand span{
-      font-size:18px;
-      background: linear-gradient(90deg, var(--gold2), rgba(79,227,138,.9));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-      text-shadow: 0 0 22px rgba(79,227,138,.18);
+.brand span{
+  font-size:26px;
+  line-height:1;
+  font-weight:800;
+  background: linear-gradient(90deg, var(--gold2), var(--green));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  text-shadow: 0 0 22px rgba(79,227,138,.18);
+}
+   
    
 }
     .links{
@@ -275,6 +279,8 @@ will-change: transform;
       h1{ font-size: 36px; }
       .grid{ grid-template-columns: 1fr; }
       .links{ justify-content:flex-start; }
+      .brand span{ font-size:22px; }
+
     }
 @keyframes coinFlip {
   from {
