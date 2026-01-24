@@ -73,6 +73,8 @@ min-height: 190px;
       gap:12px;
       font-weight:700;
       letter-spacing:.2px;
+      perspective: 800px;
+
     }
     .brand img{
     height:182px;
@@ -82,7 +84,9 @@ display:block;
 object-fit:contain;
       vertical-align:middle;
       filter: drop-shadow(0 10px 20px rgba(0,0,0,.35));
-animation: coinSpin 12s linear infinite;
+animation: coinFlip 6s linear infinite;
+backface-visibility: hidden;
+   
 transform-origin: 50% 50%;
 will-change: transform;
       
@@ -95,14 +99,7 @@ will-change: transform;
       color:transparent;
       text-shadow: 0 0 22px rgba(79,227,138,.18);
 
-animation: coinSpin 12s linear infinite;
-transform-origin: 50% 50%;
-will-change: transform;
-      
-    }
-animation: coinSpin 12s linear infinite;
-transform-origin: 50% 50%;
-will-change: transform;
+
    
     .links{
       display:flex;
@@ -233,16 +230,15 @@ will-change: transform;
       .grid{ grid-template-columns: 1fr; }
       .links{ justify-content:flex-start; }
     }
-@keyframes coinSpin {
+@keyframes coinFlip {
   from {
-    transform: rotate(0deg);
+    transform: rotateY(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotateY(360deg);
   }
 }
-
-    
+  
   </style>
 </head>
 
