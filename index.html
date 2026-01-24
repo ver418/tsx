@@ -119,7 +119,45 @@ will-change: transform;
     .pill:hover{
       background: rgba(255,255,255,.07);
     }
+/* 3D COIN */
+.coin {
+  position: relative;
+  width: 182px;
+  height: 182px;
+  transform-style: preserve-3d;
+  animation: coinSpin 6s linear infinite;
+}
 
+.coin-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 50%;
+}
+
+.coin-face.front {
+  transform: rotateY(0deg) translateZ(6px);
+}
+
+.coin-face.back {
+  transform: rotateY(180deg) translateZ(6px);
+}
+
+.coin-edge {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform: rotateY(90deg);
+  box-shadow: inset 0 0 12px rgba(255,215,0,.6);
+}
+
+@keyframes coinSpin {
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(360deg); }
+}
+    
     /* HERO */
     .hero{
       padding-top: 34px;
