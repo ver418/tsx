@@ -152,7 +152,15 @@ will-change: transform;
   transform: rotateY(90deg);
   box-shadow: inset 0 0 12px rgba(255,215,0,.6);
 }
+.coin-face.front {
+  transform: translateZ(8px);
+}
 
+.coin-face.back {
+  transform: rotateY(180deg) translateZ(8px);
+}
+
+    
 @keyframes coinSpin {
   from { transform: rotateY(0deg); }
   to   { transform: rotateY(360deg); }
