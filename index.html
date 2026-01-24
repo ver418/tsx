@@ -94,6 +94,11 @@ will-change: transform;
       background-clip:text;
       color:transparent;
       text-shadow: 0 0 22px rgba(79,227,138,.18);
+
+animation: coinSpin 12s linear infinite;
+transform-origin: 50% 50%;
+will-change: transform;
+      
     }
 animation: coinSpin 12s linear infinite;
 transform-origin: 50% 50%;
@@ -228,6 +233,16 @@ will-change: transform;
       .grid{ grid-template-columns: 1fr; }
       .links{ justify-content:flex-start; }
     }
+@keyframes coinSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+    
   </style>
 </head>
 
