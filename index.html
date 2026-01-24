@@ -45,31 +45,17 @@
     }
 
     /* TOP BAR */
-    <div class="topline">
-  <div class="nav">
-
-    <div class="brand">
-      <div class="coin">
-        <img class="coin-face front" src="b37747bb-7c9b-487e-bf7b-9fc88c34e20b.png" alt="TSX coin front">
-        <div class="coin-edge"></div>
-        <img class="coin-face back" src="b37747bb-7c9b-487e-bf7b-9fc88c34e20b.png" alt="TSX coin back">
-      </div>
-      <span>TSX TaxShield</span>
-    </div>
-
-    <div class="links">
-      <a class="pill" href="tokenomics.html">Tokenomics</a>
-      <a class="pill" href="treasury.html">Treasury</a>
-      <a class="pill" href="raise.html">Raise</a>
-      <a class="pill" href="community.html">Community</a>
-      <a class="pill" href="docs.html">Docs</a>
-    </div>
-
-  </div>
-</div>
-
-  
-    }
+.topline {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  background: rgba(8, 3, 14, 0.55);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 12px 0;
+  min-height: 90px;
+ 
+}
 
     .nav{
       display:flex;
