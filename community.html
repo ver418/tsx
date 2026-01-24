@@ -1,1 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TSX TaxShield – Community</title>
+
+  <style>
+    :root{
+      --bg1:#070b14;
+      --bg2:#0b1020;
+      --card:rgba(255,255,255,.05);
+      --border:rgba(255,255,255,.08);
+      --text:#eaf0ff;
+      --muted:rgba(234,240,255,.75);
+      --accent:#4fe38a;
+      --accent2:#e6c15a;
+      --radius:18px;
+      --shadow:0 18px 60px rgba(0,0,0,.45);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 600px at 15% 20%, rgba(79,227,138,.12), transparent 60%),
+        radial-gradient(900px 600px at 85% 15%, rgba(230,193,90,.10), transparent 60%),
+        linear-gradient(180deg,var(--bg1),var(--bg2));
+    }
+
+    a{ color:inherit; text-decoration:none; }
+
+    .wrap{
+      max-width:900px;
+      margin:0 auto;
+      padding:28px 18px 70px;
+    }
+
+    .back{
+      display:inline-block;
+      margin-bottom:18px;
+      color:var(--muted);
+    }
+
+    h1{
+      margin:6px 0 18px;
+      font-size:42px;
+      letter-spacing:.2px;
+    }
+
+    h2{
+      margin:0 0 10px;
+      font-size:20px;
+    }
+
+    p{
+      line-height:1.6;
+      color:var(--muted);
+      margin:0 0 12px;
+    }
+
+    ul{
+      margin:10px 0 0 18px;
+      color:var(--muted);
+    }
+
+    li{ margin:6px 0; }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:20px 22px;
+      margin-bottom:18px;
+    }
+
+    .pill-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:10px;
+    }
+
+    .pill{
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:13px;
+      background:rgba(255,255,255,.06);
+      border:1px solid var(--border);
+      color:var(--muted);
+    }
+
+    .pill.accent{ color:var(--accent); border-color:rgba(79,227,138,.4); }
+    .pill.gold{ color:var(--accent2); border-color:rgba(230,193,90,.45); }
+
+    @media (max-width:900px){
+      h1{ font-size:34px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <a class="back" href="index.html">← Back to Home</a>
+
+    <h1>Community</h1>
+
+    <div class="card">
+      <h2>What the TSX community is</h2>
+      <p>
+        The TSX community is built around long-term thinking, transparency,
+        and real-world utility — not hype cycles or short-term speculation.
+      </p>
+      <p>
+        Participation is open, but expectations are clear: respect the mission,
+        the structure, and the people involved.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Core principles</h2>
+      <ul>
+        <li>No hype-driven promotion</li>
+        <li>No guaranteed returns or promises</li>
+        <li>Transparency over marketing</li>
+        <li>Utility first, price second</li>
+        <li>Long-term sustainability over short-term pumps</li>
+      </ul>
+
+      <div class="pill-row">
+        <span class="pill accent">Transparency-first</span>
+        <span class="pill gold">No buy buttons</span>
+        <span class="pill">No leverage</span>
+        <span class="pill">No hype cycles</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>How participation works</h2>
+      <p>
+        Early on, community participation is informational and observational.
+        As the protocol matures, structured governance and feedback channels
+        may be introduced deliberately — not rushed.
+      </p>
+      <p>
+        Until then, the focus is education, clarity, and alignment.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>What this is not</h2>
+      <ul>
+        <li>Not a meme community</li>
+        <li>Not a promise of profit</li>
+        <li>Not a fast-launch DAO</li>
+        <li>Not an influencer-driven project</li>
+      </ul>
+    </div>
+
+  </div>
+</body>
+</html>
 
