@@ -120,6 +120,20 @@
   background: radial-gradient(circle at top center, rgba(80,200,120,.15), transparent 70%);
   z-index:0;
 }
+.hero::before{
+  animation: heroPulse 14s ease-in-out infinite;
+}
+
+@keyframes heroPulse{
+  0%,100%{
+    opacity:0.55;
+    transform: scale(1);
+  }
+  50%{
+    opacity:0.85;
+    transform: scale(1.03);
+  }
+}
 
 .hero > *{
   position:relative;
