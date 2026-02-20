@@ -109,21 +109,27 @@ body::after{
       perspective: 800px;
 
     }
-.brand img{
+/* Coin image only */
+.brand .coinImg{
   height:182px;
   width:auto;
   display:block;
   object-fit:contain;
-  vertical-align:middle;
   filter: drop-shadow(0 10px 20px rgba(0,0,0,.35));
+  animation:none !important;
+  transform:none !important;
+}
 
-  animation: none !important;   /* <-- stop spinning */
-  transform: none !important;
-
-  backface-visibility: visible;
-  -webkit-backface-visibility: visible;
-  transform-origin: 50% 50%;
-  will-change: auto;
+/* TSX mark on the right */
+.brand .tsxMark{
+  height:110px;
+  width:auto;
+  display:block;
+  object-fit:contain;
+  filter: drop-shadow(0 10px 22px rgba(0,0,0,.28));
+  animation:none !important;
+  transform:none !important;
+}
 }
 .brand span{
   font-size:26px;
@@ -135,7 +141,11 @@ body::after{
   color: var(--text);
   text-shadow: 0 0 22px rgba(79,227,138,.18);
 }
-   
+.brand{
+  display:flex;
+  align-items:center;
+  gap:28px;
+}   
    
 }
     .links{
@@ -371,8 +381,10 @@ body::after{
         <div class="coin-edge"></div>
         <img class="coin-face back" src="b37747bb-7c9b-487e-bf7b-9fc88c34e20b.png" alt="TSX coin back">
       </div>
-.coin-face.back{ display:none; }
-.coin-edge{ display:none; } /* optional */     alt="TSX TaxShield">
+<div class="brand">
+  <img class="coinImg" src="file_00000000b82461f4a57d617f4c2c0c20.png" alt="TSX TaxShield">
+  <img class="tsxMark" src="file_00000000a578722fb783f25a58f01db9.png" alt="TSX">
+</div>
 
     </div>
 
