@@ -110,12 +110,13 @@ body::after{
 
     }
 /* Coin image only */
-.brand .coinImg{
-  height:182px;
-  width:auto;
-  display:block;
-  object-fit:contain;
-  filter: drop-shadow(0 10px 20px rgba(0,0,0,.35));
+.brand .tsxMark{
+  height: 110px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 22px rgba(0,0,0,.28));
+}
   animation:none !important;
   transform:none !important;
 }
@@ -144,8 +145,11 @@ body::after{
 .brand{
   display:flex;
   align-items:center;
-  gap:28px;
-}   
+  justify-content:flex-start;
+  gap: 26px;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
    
 }
     .links{
@@ -372,20 +376,11 @@ body::after{
 </head>
 
 <body>
- <div class="topline">
+<div class="topline">
   <div class="nav">
-
     <div class="brand">
-      <div class="coin">
-        <img class="coin-face front" src="b37747bb-7c9b-487e-bf7b-9fc88c34e20b.png" alt="TSX coin front">
-        <div class="coin-edge"></div>
-        <img class="coin-face back" src="b37747bb-7c9b-487e-bf7b-9fc88c34e20b.png" alt="TSX coin back">
-      </div>
-<div class="brand">
-  <img class="coinImg" src="file_00000000b82461f4a57d617f4c2c0c20.png" alt="TSX TaxShield">
-  <img class="tsxMark" src="file_00000000a578722fb783f25a58f01db9.png" alt="TSX">
-</div>
-
+      <img class="coinImg" src="file_00000000b82461f4a57d617f4c2c0c20.png" alt="TSX TaxShield">
+      <img class="tsxMark" src="file_00000000a578722fb783f25a58f01db9.png" alt="TSX">
     </div>
 
     <div class="links">
@@ -395,7 +390,6 @@ body::after{
       <a class="pill" href="community.html">Community</a>
       <a class="pill" href="docs.html">Docs</a>
     </div>
-
   </div>
 </div>
 
