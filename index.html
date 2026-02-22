@@ -521,7 +521,54 @@ h1, h2, .card h2, .pill, .tagline{
   background: rgba(255,255,255,.06) !important;
   border: 1px solid rgba(255,255,255,.12) !important;
 }
-      
+ /* ===== MAKE THE YELLOW AREA NARROWER + MORE VERTICAL ===== */
+
+/* Narrow the main content column and center it */
+.wrap{
+  max-width: 760px;      /* try 720px if you want even tighter */
+  margin: 0 auto;
+  padding: 18px 18px 80px;
+}
+
+/* ===== HERO (TSX TaxShield + sentence) BIGGER + MORE CENTERED ===== */
+.hero{
+  text-align: center;    /* centers the hero block */
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.hero h1{
+  font-size: 54px;       /* bigger headline */
+  line-height: 1.05;
+  margin: 10px 0 10px;
+}
+
+.tagline{
+  font-size: 22px;       /* bigger subtitle sentence */
+  max-width: 680px;
+  margin: 0 auto 18px;
+}
+
+/* Center the buttons under the hero text */
+.buttons{
+  justify-content: center;
+}
+
+/* ===== KEEP CARD TITLES SAME, MAKE ONLY THE SENTENCES BIGGER ===== */
+.card h2{
+  font-size: 18px;       /* keep about the same */
+}
+
+.card p{
+  font-size: 16.5px;     /* bigger descriptions under headings */
+  line-height: 1.55;
+}
+
+/* Tighten the 2-column area so it feels less wide */
+.grid{
+  gap: 10px;
+  margin-top: 18px;
+}     
   </style>
   
 
