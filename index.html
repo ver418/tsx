@@ -180,7 +180,8 @@ body::after{
   flex-wrap: wrap;
   max-width: 100%;
 }
-   
+/* Hide logo in sticky header so tabs can fill the bar */
+.topline .brand{ display:none; }   
 }
     .links{
       display:flex;
@@ -195,7 +196,52 @@ body::after{
   flex-wrap:wrap;
   justify-content:center;
 }
+/* ===== BIG HEADER TABS (FILL THE TOP BAR) ===== */
 
+.topline .nav{
+  display:flex;
+  align-items:center;
+  justify-content:center;   /* center everything */
+  gap: 18px;
+  padding: 14px 18px;       /* taller header */
+}
+
+/* Make the tabs row stretch across */
+.topline .links{
+  width: 100%;
+  display:flex;
+  justify-content: space-between;  /* spread tabs across */
+  gap: 14px;
+  flex-wrap: nowrap;              /* keep them in one row */
+}
+
+/* Make each tab big */
+.topline .pill{
+  flex: 1;                         /* each tab grows evenly */
+  text-align: center;
+  font-size: 28px;                 /* BIG text */
+  font-weight: 800;
+  padding: 18px 10px;              /* BIG height */
+  border-radius: 16px;             /* tab shape, not tiny pill */
+  background: rgba(10,14,30,.40);
+  border: 1px solid rgba(255,255,255,.18);
+  color: rgba(241,236,255,.96);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 14px 34px rgba(0,0,0,.30);
+}
+
+/* Hover glow */
+.topline .pill:hover{
+  background: rgba(255,255,255,.10);
+  border-color: rgba(255,255,255,.26);
+  transform: translateY(-1px);
+}
+
+/* If the screen is too narrow, allow wrapping */
+@media (max-width: 950px){
+  .topline .links{ flex-wrap: wrap; }
+  .topline .pill{ flex: 1 1 45%; font-size: 22px; padding: 16px 10px; }
+}
 .pill{
   padding: 16px 26px;                 /* bigger click area */
   border-radius: 999px;
