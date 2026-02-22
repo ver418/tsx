@@ -4,8 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TSX TaxShield</title>
-
+  
   <style>
+    /* ===== FINALIZE HEADER SIZING (LOCK IT IN) ===== */
+
+/* Keep the sticky bar tight */
+.topline{
+  padding: 10px 0;
+}
+
+/* Make the brand in the sticky header compact */
+.topline .brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+/* Small coin + small TSX in the sticky header */
+.topline .brand .coinImg{ height: 44px; width:auto; }
+.topline .brand .tsxMark{ height: 28px; width:auto; }
+
+.topline img{ max-height: 52px; width:auto; }
     :root{
       --bg1:#07030c;
       --bg2:#140624;
