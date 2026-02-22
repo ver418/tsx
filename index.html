@@ -102,12 +102,24 @@ body::after{
 }
   min-height: 100vh;
 } 
-    .wrap{
-  max-width: 760px;   /* was 1100px */
+ /* Make the main content area feel more vertical (narrower) */
+.wrap{
+  max-width: 760px;
   margin: 0 auto;
   padding: 18px 18px 80px;
 }
-    
+
+/* Keep 2 columns but reduce the "spread out" feeling */
+.grid{
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+/* Slightly tighter cards (more stacked feel) */
+.card{
+  padding: 14px 14px 12px;
+}   
     }
 
     /* TOP BAR */
