@@ -6,6 +6,19 @@
   <title>TSX TaxShield</title>
   
   <style>
+    :root{
+  --text:#f1ecff;
+  --muted:rgba(241,236,255,.75);
+}
+   body{ color: var(--text); }
+
+h1, h2, .card h2, .pill, .tagline{
+  color: var(--text);
+}
+
+.card p{
+  color: var(--muted);
+} 
     /* ===== FINALIZE HEADER SIZING (LOCK IT IN) ===== */
 
 /* Keep the sticky bar tight */
@@ -21,9 +34,9 @@
 }
 
 /* Small coin + small TSX in the sticky header */
-.topline .brand .coinImg{ height: 56px; width:auto; }
-.topline .brand .tsxMark{ height: 36px; width:auto; }
-.topline img{ max-height: 64px; width:auto; }
+.topline .brand .coinImg{ height: 78px; width:auto; }
+.topline .brand .tsxMark{ height: 54px; width:auto; }
+.topline img{ max-height: 90px; width:auto; }
     
       --bg1:#07030c;
       --bg2:#140624;
@@ -394,7 +407,33 @@ body::after{
   gap:12px;
   flex-direction: row;
 }
+/* FORCE LIGHT TEXT (fix black headings/cards) */
+body{ color: var(--text) !important; }
+
+h1, h2, .card h2, .pill, .tagline{
+  color: var(--text) !important;
+}
+
+.card p{
+  color: var(--muted) !important;
+}
+
+/* Make the cards clearly visible */
+.card{
+  background: rgba(18,8,28,.55) !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+}
+
+/* Make the nav pills readable */
+.pill{
+  color: rgba(241,236,255,.92) !important;
+  background: rgba(255,255,255,.06) !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+}
+      
   </style>
+  
+
 </head>
 
 <body>
