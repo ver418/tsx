@@ -3,167 +3,1090 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TSX TaxShield – Community</title>
-
+  <title>Community | TSX TaxShield</title>
+  <meta name="description" content="TSX TaxShield Community — join the movement, follow the social platforms, and stay updated as the ecosystem grows." />
   <style>
-    :root{
-      --bg1:#070b14;
-      --bg2:#0b1020;
-      --card:rgba(255,255,255,.05);
-      --border:rgba(255,255,255,.08);
-      --text:#eaf0ff;
-      --muted:rgba(234,240,255,.75);
-      --accent:#4fe38a;
-      --accent2:#e6c15a;
-      --radius:18px;
-      --shadow:0 18px 60px rgba(0,0,0,.45);
+    :root {
+      --bg: #090214;
+      --bg-2: #130526;
+      --panel: rgba(18, 10, 38, 0.78);
+      --panel-2: rgba(27, 14, 51, 0.9);
+      --text: #f7f2ff;
+      --muted: #d8cdef;
+      --gold: #f7c95c;
+      --gold-2: #ffdf88;
+      --green: #6ef0bb;
+      --green-2: #96ffd8;
+      --purple: #7d43ff;
+      --purple-2: #b26dff;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.46);
+      --radius: 28px;
+      --radius-sm: 20px;
+      --max: 1220px;
     }
 
-    *{ box-sizing:border-box; }
-    html,body{ height:100%; }
-
-    body{
-      margin:0;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      color:var(--text);
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
       background:
-        radial-gradient(900px 600px at 15% 20%, rgba(79,227,138,.12), transparent 60%),
-        radial-gradient(900px 600px at 85% 15%, rgba(230,193,90,.10), transparent 60%),
-        linear-gradient(180deg,var(--bg1),var(--bg2));
+        radial-gradient(circle at 12% 16%, rgba(125, 67, 255, 0.36), transparent 28%),
+        radial-gradient(circle at 86% 14%, rgba(247, 201, 92, 0.22), transparent 24%),
+        radial-gradient(circle at 50% 80%, rgba(110, 240, 187, 0.12), transparent 30%),
+        linear-gradient(180deg, #11051f 0%, #090214 46%, #070112 100%);
+      line-height: 1.58;
+      overflow-x: hidden;
     }
 
-    a{ color:inherit; text-decoration:none; }
-
-    .wrap{
-      max-width:900px;
-      margin:0 auto;
-      padding:28px 18px 70px;
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -2;
     }
 
-    .back{
-      display:inline-block;
-      margin-bottom:18px;
-      color:var(--muted);
+    body::before {
+      background-image:
+        radial-gradient(circle, rgba(255,255,255,0.72) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.32) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,0.18) 1px, transparent 1px);
+      background-size: 180px 180px, 250px 250px, 330px 330px;
+      background-position: 0 0, 70px 100px, 34px 28px;
+      opacity: 0.18;
     }
 
-    h1{
-      margin:6px 0 18px;
-      font-size:42px;
-      letter-spacing:.2px;
+    body::after {
+      background:
+        radial-gradient(circle at 58% 10%, rgba(255, 214, 107, 0.14), transparent 26%),
+        radial-gradient(circle at 50% 0%, rgba(130, 70, 255, 0.2), transparent 36%),
+        radial-gradient(circle at 32% 40%, rgba(110, 240, 187, 0.12), transparent 16%);
+      filter: blur(12px);
+      z-index: -1;
     }
 
-    h2{
-      margin:0 0 10px;
-      font-size:20px;
+    a { color: inherit; text-decoration: none; }
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
     }
 
-    p{
-      line-height:1.6;
-      color:var(--muted);
-      margin:0 0 12px;
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(180deg, rgba(8, 2, 16, 0.9), rgba(8, 2, 16, 0.58));
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
-    ul{
-      margin:10px 0 0 18px;
-      color:var(--muted);
+    .site-header .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 78px;
     }
 
-    li{ margin:6px 0; }
-
-    .card{
-      background:var(--card);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:20px 22px;
-      margin-bottom:18px;
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
     }
 
-    .pill-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top:10px;
+    .brand-mark {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      position: relative;
+      background:
+        radial-gradient(circle at 32% 28%, rgba(255,255,255,0.4), transparent 18%),
+        linear-gradient(145deg, #ffe7a6, #f7c95c 36%, #b77711 78%, #8a5408 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,0.55),
+        inset 0 -2px 10px rgba(86, 47, 0, 0.4),
+        0 0 22px rgba(247, 201, 92, 0.28),
+        0 0 42px rgba(125, 67, 255, 0.18);
+      border: 1px solid rgba(255,255,255,0.25);
+      overflow: hidden;
+      flex-shrink: 0;
     }
 
-    .pill{
-      padding:8px 12px;
-      border-radius:999px;
-      font-size:13px;
-      background:rgba(255,255,255,.06);
-      border:1px solid var(--border);
-      color:var(--muted);
+    .brand-mark::before {
+      content: "TSX";
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 0.96rem;
+      color: #2b1400;
+      letter-spacing: 0.09em;
     }
 
-    .pill.accent{ color:var(--accent); border-color:rgba(79,227,138,.4); }
-    .pill.gold{ color:var(--accent2); border-color:rgba(230,193,90,.45); }
+    .brand-copy { min-width: 0; }
+    .brand-kicker {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold-2);
+      margin-bottom: 2px;
+    }
 
-    @media (max-width:900px){
-      h1{ font-size:34px; }
+    .brand-name {
+      display: block;
+      font-size: 1.12rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .brand-tag {
+      display: block;
+      font-size: 0.83rem;
+      color: var(--muted);
+      opacity: 0.86;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav a {
+      padding: 10px 14px;
+      color: #efe7ff;
+      font-size: 0.95rem;
+      border-radius: 999px;
+      transition: 180ms ease;
+      border: 1px solid transparent;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.08);
+    }
+
+    .nav .cta-nav {
+      background: linear-gradient(180deg, rgba(255, 222, 136, 0.2), rgba(247, 201, 92, 0.14));
+      border-color: rgba(255, 222, 136, 0.34);
+      box-shadow: 0 0 0 1px rgba(247, 201, 92, 0.08) inset;
+    }
+
+    .hero {
+      padding: 54px 0 26px;
+      overflow: clip;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.06fr 0.94fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--gold-2);
+      background: rgba(255, 213, 123, 0.08);
+      border: 1px solid rgba(255, 213, 123, 0.16);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, var(--green-2), var(--green));
+      box-shadow: 0 0 16px rgba(110, 240, 187, 0.55);
+    }
+
+    h1 {
+      margin: 18px 0 16px;
+      font-size: clamp(2.7rem, 5vw, 5rem);
+      line-height: 0.95;
+      letter-spacing: -0.045em;
+      max-width: 11ch;
+      text-wrap: balance;
+    }
+
+    .hero-lead {
+      margin: 0;
+      max-width: 700px;
+      font-size: 1.08rem;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 50px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      border: 1px solid transparent;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease;
+      cursor: pointer;
+    }
+
+    .button:hover { transform: translateY(-1px); }
+
+    .button-primary {
+      color: #291600;
+      background: linear-gradient(180deg, #ffe7a6 0%, #f7c95c 52%, #dfa936 100%);
+      box-shadow: 0 10px 30px rgba(247, 201, 92, 0.24), inset 0 1px 0 rgba(255,255,255,0.48);
+      border-color: rgba(255, 227, 153, 0.4);
+    }
+
+    .button-secondary {
+      color: var(--text);
+      background: linear-gradient(180deg, rgba(110, 240, 187, 0.13), rgba(110, 240, 187, 0.06));
+      border-color: rgba(110, 240, 187, 0.26);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 10px 24px rgba(9, 2, 20, 0.28);
+    }
+
+    .micro-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .micro-points span {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      color: #e9defe;
+      font-size: 0.92rem;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 560px;
+      display: grid;
+      place-items: center;
+    }
+
+    .hero-glow,
+    .hero-orbit,
+    .hero-hub,
+    .hero-core,
+    .hero-card,
+    .node,
+    .node::before,
+    .node::after,
+    .node-2,
+    .node-3,
+    .node-4 {
+      position: absolute;
+    }
+
+    .hero-glow {
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(255, 214, 107, 0.34), rgba(255, 214, 107, 0.08) 24%, rgba(125, 67, 255, 0.26) 46%, transparent 68%);
+      filter: blur(26px);
+    }
+
+    .hero-orbit {
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.02) inset;
+    }
+
+    .hero-orbit::before,
+    .hero-orbit::after {
+      content: "";
+      position: absolute;
+      inset: 28px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 215, 84, 0.12);
+    }
+
+    .hero-orbit::after {
+      inset: 72px;
+      border-color: rgba(110, 240, 187, 0.12);
+    }
+
+    .hero-hub {
+      width: 270px;
+      height: 270px;
+      border-radius: 50%;
+      background: linear-gradient(180deg, rgba(24, 11, 50, 0.88), rgba(11, 6, 26, 0.96));
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1), 0 0 0 1px rgba(247, 201, 92, 0.08), 0 30px 70px rgba(0,0,0,0.45);
+    }
+
+    .hero-hub::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 32%, rgba(255,255,255,0.12), transparent 18%), radial-gradient(circle at 50% 34%, rgba(255, 220, 133, 0.14), transparent 38%), linear-gradient(180deg, rgba(110, 240, 187, 0.18), rgba(125, 67, 255, 0.24));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero-core {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 34% 28%, rgba(255,255,255,0.44), transparent 18%),
+        linear-gradient(145deg, rgba(110,240,187,0.95), rgba(247,201,92,0.72) 55%, rgba(128,81,6,0.95) 100%);
+      box-shadow:
+        inset 0 2px 0 rgba(255,255,255,0.45),
+        inset 0 -12px 16px rgba(40, 28, 0, 0.2),
+        0 12px 34px rgba(0,0,0,0.34),
+        0 0 36px rgba(110, 240, 187, 0.2),
+        0 0 64px rgba(125, 67, 255, 0.18);
+      border: 1px solid rgba(255,255,255,0.28);
+      z-index: 2;
+      text-align: center;
+      color: #1d1200;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+
+    .hero-core::before { content: "TSX\A Community"; white-space: pre; }
+
+    .node,
+    .node-2,
+    .node-3,
+    .node-4 {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #ffefb9, #f5c250 48%, #9f620e 100%);
+      box-shadow: 0 0 18px rgba(247, 201, 92, 0.38);
+      z-index: 1;
+    }
+
+    .node { right: 62px; top: 96px; }
+    .node-2 { left: 60px; top: 126px; }
+    .node-3 { right: 110px; bottom: 110px; }
+    .node-4 { left: 110px; bottom: 82px; }
+
+    .hero-card {
+      left: 8px;
+      bottom: 18px;
+      width: min(320px, 86%);
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: rgba(14, 7, 30, 0.84);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero-card small {
+      display: block;
+      color: var(--gold-2);
+      font-size: 0.74rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .hero-card strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .hero-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .info-strip {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .strip-card {
+      padding: 22px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(180deg, rgba(21, 12, 42, 0.92), rgba(12, 6, 27, 0.92));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .strip-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(110, 240, 187, 0.85), rgba(247, 201, 92, 0.92), transparent);
+      opacity: 0.9;
+    }
+
+    .strip-card span {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--gold-2);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.72rem;
+    }
+
+    .strip-card strong {
+      display: block;
+      font-size: 1.02rem;
+      margin-bottom: 6px;
+    }
+
+    .strip-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .section {
+      padding: 88px 0 0;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: end;
+      margin-bottom: 24px;
+    }
+
+    .label {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--gold-2);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.75rem;
+    }
+
+    .section-head .label {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--gold-2);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 0.75rem;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: clamp(2rem, 3vw, 3rem);
+      letter-spacing: -0.04em;
+    }
+
+    .section-head p {
+      max-width: 760px;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .section-link {
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.09);
+      color: #f2e7ff;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .grid-2 {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: 1.06fr 0.94fr;
+    }
+
+    .panel {
+      position: relative;
+      padding: 30px;
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(22, 12, 44, 0.92), rgba(11, 6, 25, 0.97));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(255, 220, 133, 0.08), transparent 34%);
+      pointer-events: none;
+    }
+
+    .panel h3 {
+      margin: 0 0 14px;
+      font-size: 1.2rem;
+    }
+
+    .panel p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .list,
+    .daily-list,
+    .join-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .list div,
+    .daily-list div,
+    .join-list div {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: #efe6ff;
+    }
+
+    .list strong,
+    .daily-list strong,
+    .join-list strong {
+      color: var(--gold-2);
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .social-card {
+      display: block;
+      padding: 22px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+      overflow: hidden;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .social-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .social-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(110, 240, 187, 0.75), rgba(247, 201, 92, 0.92));
+    }
+
+    .social-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--gold-2);
+      font-size: 1.12rem;
+      font-weight: 900;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+
+    .social-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.06rem;
+    }
+
+    .social-card p {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .social-handle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: #f3ebff;
+      font-size: 0.84rem;
+      letter-spacing: 0.03em;
+    }
+
+    .signup-panel {
+      padding: 34px;
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(110, 240, 187, 0.08), transparent 18%),
+        radial-gradient(circle at 82% 18%, rgba(255, 216, 118, 0.11), transparent 20%),
+        linear-gradient(180deg, rgba(24, 12, 47, 0.94), rgba(10, 5, 22, 0.98));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 20px;
+      grid-template-columns: 1.12fr 0.88fr;
+      align-items: center;
+    }
+
+    .signup-panel h2 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 3vw, 3rem);
+      letter-spacing: -0.04em;
+    }
+
+    .signup-panel p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 700px;
+    }
+
+    .signup-form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .signup-form input {
+      width: 100%;
+      min-height: 54px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      padding: 0 16px;
+      font: inherit;
+      outline: none;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+
+    .signup-form input::placeholder { color: #b8a9d7; }
+
+    .signup-note {
+      font-size: 0.85rem;
+      color: #cdbfeb;
+    }
+
+    .quote-panel {
+      padding: 30px;
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 18% 20%, rgba(110, 240, 187, 0.08), transparent 18%),
+        radial-gradient(circle at 82% 18%, rgba(255, 216, 118, 0.11), transparent 20%),
+        linear-gradient(180deg, rgba(24, 12, 47, 0.94), rgba(10, 5, 22, 0.98));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .quote-panel p {
+      margin: 0;
+      font-size: clamp(1.2rem, 2vw, 1.6rem);
+      line-height: 1.4;
+      color: #f7f1ff;
+    }
+
+    .quote-panel small {
+      display: block;
+      margin-top: 12px;
+      color: var(--gold-2);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 0.74rem;
+    }
+
+    .footer {
+      padding: 34px 0 52px;
+      margin-top: 76px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      color: #cabbe6;
+    }
+
+    .footer-wrap {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .soft { color: var(--muted); }
+
+    @media (max-width: 1100px) {
+      .hero-grid,
+      .grid-2,
+      .section-head,
+      .signup-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head { align-items: start; }
+      .info-strip { grid-template-columns: repeat(2, 1fr); }
+      .social-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 820px) {
+      .site-header .wrap {
+        padding: 12px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .hero { padding-top: 34px; }
+      h1 { max-width: none; }
+      .hero-visual { min-height: 430px; }
+      .hero-glow { width: 360px; height: 360px; }
+      .hero-orbit { width: 330px; height: 330px; }
+      .hero-hub { width: 210px; height: 210px; }
+      .hero-core { width: 124px; height: 124px; font-size: 0.76rem; }
+      .hero-card {
+        position: static;
+        width: 100%;
+        margin-top: 18px;
+      }
+
+      .info-strip,
+      .social-grid { grid-template-columns: 1fr; }
+      .panel,
+      .signup-panel,
+      .social-card { padding: 22px; }
     }
   </style>
 </head>
-
 <body>
-  <div class="wrap">
+  <header class="site-header">
+    <div class="container wrap">
+      <a class="brand" href="index.html" aria-label="TSX TaxShield home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-copy">
+          <span class="brand-kicker">Join the Movement</span>
+          <span class="brand-name">TSX Community</span>
+          <span class="brand-tag">Follow the rollout, learn the mission, and watch the ecosystem grow step by step</span>
+        </span>
+      </a>
 
-    <a class="back" href="index.html">← Back to Home</a>
-
-    <h1>Community</h1>
-
-    <div class="card">
-      <h2>What the TSX community is</h2>
-      <p>
-        The TSX community is built around long-term thinking, transparency,
-        and real-world utility — not hype cycles or short-term speculation.
-      </p>
-      <p>
-        Participation is open, but expectations are clear: respect the mission,
-        the structure, and the people involved.
-      </p>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="tokenomics.html">Tokenomics</a>
+        <a href="treasury.html">Treasury</a>
+        <a href="raise.html">Raise</a>
+        <a class="active" href="community.html">Community</a>
+        <a href="docs.html">Docs</a>
+        <a class="cta-nav" href="#signup">Join the Waitlist</a>
+      </nav>
     </div>
+  </header>
 
-    <div class="card">
-      <h2>Core principles</h2>
-      <ul>
-        <li>No hype-driven promotion</li>
-        <li>No guaranteed returns or promises</li>
-        <li>Transparency over marketing</li>
-        <li>Utility first, price second</li>
-        <li>Long-term sustainability over short-term pumps</li>
-      </ul>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <span class="eyebrow">Daily updates. Real community. Step-by-step rollout.</span>
+            <h1>Join the TSX community and grow with the project.</h1>
+            <p class="hero-lead">
+              The community page is where people should feel invited in. Follow TSX across social platforms, check in every day,
+              get familiar with the token, and watch the rollout unfold as the ecosystem keeps taking shape.
+            </p>
 
-      <div class="pill-row">
-        <span class="pill accent">Transparency-first</span>
-        <span class="pill gold">No buy buttons</span>
-        <span class="pill">No leverage</span>
-        <span class="pill">No hype cycles</span>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#socials">Explore social channels</a>
+              <a class="button button-secondary" href="#signup">Join by email</a>
+            </div>
+
+            <div class="micro-points">
+              <span>Facebook</span>
+              <span>X</span>
+              <span>TikTok</span>
+              <span>Truth Social</span>
+              <span>Reddit</span>
+              <span>Instagram</span>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hero-glow"></div>
+            <div class="hero-orbit"></div>
+            <div class="node"></div>
+            <div class="node-2"></div>
+            <div class="node-3"></div>
+            <div class="node-4"></div>
+            <div class="hero-hub"></div>
+            <div class="hero-core"></div>
+            <div class="hero-card">
+              <small>Why this page matters</small>
+              <strong>This is where people start feeling part of it.</strong>
+              <p>Not everyone will enter through tokenomics first. Some will meet TSX through posts, visuals, and steady daily presence.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-strip">
+          <article class="strip-card">
+            <span>Purpose</span>
+            <strong>Build trust through presence</strong>
+            <p>People should be able to follow the project, check in often, and get familiar with it over time.</p>
+          </article>
+          <article class="strip-card">
+            <span>Voice</span>
+            <strong>Open and welcoming</strong>
+            <p>The page should make it easy for new people to understand they are welcome to learn and watch the rollout.</p>
+          </article>
+          <article class="strip-card">
+            <span>Rhythm</span>
+            <strong>Daily visibility matters</strong>
+            <p>Regular posts help people see movement and get to know the token one step at a time.</p>
+          </article>
+          <article class="strip-card">
+            <span>Goal</span>
+            <strong>Turn interest into community</strong>
+            <p>Email signups and social follows are how the project starts building a real base.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="why-community">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="label">Why community matters</span>
+            <h2>People should feel invited to learn the token over time.</h2>
+            <p>
+              TSX is not trying to be a one-day hype event. The community page should make it clear that people are welcome to follow the build,
+              check back often, and get comfortable with the project as it keeps rolling out in public.
+            </p>
+          </div>
+          <a class="section-link" href="#socials">Open social links</a>
+        </div>
+
+        <div class="grid-2">
+          <article class="panel">
+            <h3>What this page should communicate</h3>
+            <div class="list">
+              <div><strong>Come watch the project grow.</strong> People do not have to understand everything at once to be part of the journey.</div>
+              <div><strong>Check in every day.</strong> The token is being introduced step by step, and the community can learn it as it evolves.</div>
+              <div><strong>Follow the mission.</strong> The point is bigger than a chart — it is about structure, resilience, and building something different.</div>
+              <div><strong>Join early.</strong> Following now means seeing the project before the larger expansion fully arrives.</div>
+            </div>
+          </article>
+
+          <article class="panel">
+            <h3>Best tone for the community page</h3>
+            <div class="join-list">
+              <div><strong>Welcoming:</strong> people are invited to learn, watch, and grow with the ecosystem.</div>
+              <div><strong>Consistent:</strong> every page should feel like part of the same premium TSX system.</div>
+              <div><strong>Active:</strong> the community page should feel alive, not static.</div>
+              <div><strong>Daily:</strong> remind visitors that they can come back every day and get to know the token better.</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="socials">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="label">Social channels</span>
+            <h2>Follow TSX across the platforms where the rollout is happening.</h2>
+            <p>
+              This section is built so people can quickly find your pages, follow the project, and keep up with what is happening. One verified Instagram handle is included below. The other cards are ready for your exact profile URLs.
+            </p>
+          </div>
+          <a class="section-link" href="#signup">Join by email</a>
+        </div>
+
+        <div class="social-grid">
+          <a class="social-card" href="#" target="_blank" rel="noopener noreferrer">
+            <div class="social-icon">f</div>
+            <h3>Facebook</h3>
+            <p>Follow the page, watch updates, and keep track of the rollout as the community grows.</p>
+            <span class="social-handle">Add your exact Facebook page URL</span>
+          </a>
+
+          <a class="social-card" href="#" target="_blank" rel="noopener noreferrer">
+            <div class="social-icon">X</div>
+            <h3>X</h3>
+            <p>Daily posts and sharper quick-hit updates can live here as TSX keeps building public presence.</p>
+            <span class="social-handle">Add your exact X profile URL</span>
+          </a>
+
+          <a class="social-card" href="#" target="_blank" rel="noopener noreferrer">
+            <div class="social-icon">T</div>
+            <h3>TikTok</h3>
+            <p>Short visual content, quick token explainers, and stronger energy pieces can help this channel grow fast.</p>
+            <span class="social-handle">Add your exact TikTok profile URL</span>
+          </a>
+
+          <a class="social-card" href="#" target="_blank" rel="noopener noreferrer">
+            <div class="social-icon">TS</div>
+            <h3>Truth Social</h3>
+            <p>Another place for daily presence, project voice, and direct communication as the ecosystem rolls out.</p>
+            <span class="social-handle">Add your exact Truth Social profile URL</span>
+          </a>
+
+          <a class="social-card" href="#" target="_blank" rel="noopener noreferrer">
+            <div class="social-icon">R</div>
+            <h3>Reddit</h3>
+            <p>Community discussion, longer project explanations, and direct engagement can all work well here.</p>
+            <span class="social-handle">Add your exact Reddit profile or subreddit URL</span>
+          </a>
+
+          <a class="social-card" href="https://www.instagram.com/tsxshield/" target="_blank" rel="noopener noreferrer">
+            <div class="social-icon">IG</div>
+            <h3>Instagram</h3>
+            <p>Visual posts, branded graphics, and the premium TSX aesthetic can shine here as people get to know the token.</p>
+            <span class="social-handle">@tsxshield</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="daily-checkin">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="label">Daily check-in</span>
+            <h2>People are welcome to come back every day and learn the token.</h2>
+            <p>
+              This should be one of the clearest messages on the page. The rollout is public. The build is visible. People can follow along, watch the project improve, and get familiar with TSX one day at a time.
+            </p>
+          </div>
+          <a class="section-link" href="#signup">Get updates</a>
+        </div>
+
+        <div class="grid-2">
+          <article class="panel">
+            <h3>What to tell visitors</h3>
+            <div class="daily-list">
+              <div><strong>Check in every day.</strong> TSX is being built step by step, and the community can watch it take shape in real time.</div>
+              <div><strong>Get familiar with the token.</strong> The goal is not to pressure people, but to let them understand the system over time.</div>
+              <div><strong>Follow the movement.</strong> The project is growing its identity, pages, and ecosystem in public.</div>
+              <div><strong>Stay close to the rollout.</strong> The earlier people follow, the more clearly they can see where the project is going.</div>
+            </div>
+          </article>
+
+          <article class="panel">
+            <h3>What community content can include</h3>
+            <div class="list">
+              <div><strong>Token explainers</strong> that break down TSX in simpler public-facing language.</div>
+              <div><strong>Visual posts</strong> using the purple, gold, and green premium brand direction.</div>
+              <div><strong>Treasury and tokenomics snapshots</strong> so people learn the system a little at a time.</div>
+              <div><strong>Mission posts</strong> reminding people what “To free the moderate class!” is trying to mean in practice.</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="signup">
+      <div class="container">
+        <div class="signup-panel">
+          <div>
+            <span class="label">Join by email</span>
+            <h2>Get on the list and stay close to the rollout.</h2>
+            <p>
+              Let people drop their email address so they can stay connected as the token keeps rolling out. This block gives the page a stronger invitation to join the movement instead of only watching from the outside.
+            </p>
+          </div>
+
+          <form class="signup-form" action="#" method="post">
+            <input type="email" name="email" placeholder="Enter your email address" aria-label="Email address" />
+            <button type="submit" class="button button-primary">Join the Community</button>
+            <div class="signup-note">This is a visual signup block for now. Later you can connect it to your real email or waitlist service.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="quote-panel">
+          <p>
+            People are welcome to come back every day, follow the rollout, and get to know TSX as the project keeps growing.
+          </p>
+          <small>TSX Community Direction</small>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-wrap">
+      <div>
+        <strong>TSX Community</strong>
+        <div class="soft">Follow the mission, track the rollout, and grow with the project.</div>
+      </div>
+
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="tokenomics.html">Tokenomics</a>
+        <a href="treasury.html">Treasury</a>
+        <a href="raise.html">Raise</a>
+        <a href="docs.html">Docs</a>
       </div>
     </div>
-
-    <div class="card">
-      <h2>How participation works</h2>
-      <p>
-        Early on, community participation is informational and observational.
-        As the protocol matures, structured governance and feedback channels
-        may be introduced deliberately — not rushed.
-      </p>
-      <p>
-        Until then, the focus is education, clarity, and alignment.
-      </p>
-    </div>
-
-    <div class="card">
-      <h2>What this is not</h2>
-      <ul>
-        <li>Not a meme community</li>
-        <li>Not a promise of profit</li>
-        <li>Not a fast-launch DAO</li>
-        <li>Not an influencer-driven project</li>
-      </ul>
-    </div>
-
-  </div>
+  </footer>
 </body>
 </html>
 
