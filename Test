@@ -1,11 +1,13 @@
+import React, { useState } from "react";
+
 export default function TSXFeeAdminMockup() {
-  const [step, setStep] = React.useState(0);
-  const [connected, setConnected] = React.useState(false);
-  const [wallet, setWallet] = React.useState("TSX Administration");
-  const [scanned, setScanned] = React.useState(false);
-  const [harvested, setHarvested] = React.useState(false);
-  const [withdrawn, setWithdrawn] = React.useState(false);
-  const [splitDone, setSplitDone] = React.useState(false);
+  const [step, setStep] = useState(0);
+  const [connected, setConnected] = useState(false);
+  const [wallet, setWallet] = useState("TSX Administration");
+  const [scanned, setScanned] = useState(false);
+  const [harvested, setHarvested] = useState(false);
+  const [withdrawn, setWithdrawn] = useState(false);
+  const [splitDone, setSplitDone] = useState(false);
 
   const accounts = [
     { name: "Buyer #1 TSX Account", withheld: 30000 },
