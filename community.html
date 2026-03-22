@@ -1050,11 +1050,28 @@
             </p>
           </div>
 
-          <form class="signup-form" action="#" method="post">
-            <input type="email" name="email" placeholder="Enter your email address" aria-label="Email address" />
-            <button type="submit" class="button button-primary">Join the Community</button>
-            <div class="signup-note">This is a visual signup block for now. Later you can connect it to your real email or waitlist service.</div>
-          </form>
+          <form
+  class="signup-form"
+  action="https://formspree.io/f/xqeyveee"
+  method="POST"
+>
+  <input type="hidden" name="_subject" value="New TSX waitlist signup" />
+  <input type="hidden" name="source" value="TSX Community Page" />
+
+  <input
+    type="email"
+    name="email"
+    placeholder="Enter your email address"
+    aria-label="Email address"
+    required
+  />
+
+  <button type="submit" class="button button-primary">Join the Waitlist</button>
+
+  <div class="signup-note">
+    Get updates as TSX continues to roll out.
+  </div>
+</form>
         </div>
       </div>
     </section>
